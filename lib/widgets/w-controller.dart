@@ -12,7 +12,8 @@ class Controller extends StatelessWidget {
       children: [
         Expanded(
           child: GestureDetector(
-            onTap: () {           
+            onTap: () {  
+                if(isTawafActive)         
                 changeActivePhase("sa3i");
             },
             child: Container(
@@ -28,6 +29,7 @@ class Controller extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
+              if(!isTawafActive)
                changeActivePhase("tawaf");
             },
             child: Container(

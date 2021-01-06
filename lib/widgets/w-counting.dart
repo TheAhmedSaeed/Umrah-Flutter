@@ -40,8 +40,12 @@ class _CountingState extends State<Counting> {
   changeActivePhase(String phase) {
     setState(() {
       if (phase == "tawaf") {
+        this._sa3iCoutner = this._activeCounter;
+        this._activeCounter = this._tawafCoutner;
         this._isTawafActive = true;
       } else if (phase == "sa3i") {
+        this._tawafCoutner = this._activeCounter;
+        this._activeCounter = this._sa3iCoutner;
         this._isTawafActive = false;
       }
     });
