@@ -1,6 +1,5 @@
 import 'package:Umrah/widgets/w-praying.dart';
 import 'package:flutter/material.dart';
-import 'package:Umrah/pray-class.dart';
 import './w-counting.dart';
 
 class MainPage extends StatefulWidget {
