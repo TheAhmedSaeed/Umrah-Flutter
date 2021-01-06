@@ -8,28 +8,42 @@ class Counting extends StatefulWidget {
 }
 
 class _CountingState extends State<Counting> {
-  int tawafCoutner = 0;
-  int sa3iCoutner = 0;
-  int activeCounter = 0;
-  bool isTawafActive = true;
+  int _tawafCoutner = 0;
+  int _sa3iCoutner = 0;
+
+  //coutner variables
+  int _activeCounter = 0;
+
+  // controller variables
+  bool _isTawafActive = true;
 
   increaseActivePhase() {
-    if (activeCounter == 7) {
+    if (_activeCounter == 7) {
       // I should tell the user that the max is 7 here
       return;
     }
     setState(() {
-      this.activeCounter++;
+      this._activeCounter++;
     });
   }
 
   decreaseActivePhase() {
-    if (activeCounter == 0) {
+    if (_activeCounter == 0) {
       // I should tell the user that the min is 0 here
       return;
     }
     setState(() {
-      this.activeCounter--;
+      this._activeCounter--;
+    });
+  }
+
+  changeActivePhase(String phase) {
+    setState(() {
+      if (phase == "tawaf") {
+        this._isTawafActive = true;
+      } else if (phase == "sa3i") {
+        this._isTawafActive = false;
+      }
     });
   }
 
@@ -39,11 +53,14 @@ class _CountingState extends State<Counting> {
         child: Column(
       children: [
         Counter(
-          activeCounter: activeCounter,
+          activeCounter: _activeCounter,
           increment: increaseActivePhase,
           decrement: decreaseActivePhase,
         ),
-        Controller()
+        Controller(
+          isTawafActive: _isTawafActive,
+          changeActivePhase: changeActivePhase,
+        )
       ],
     ));
   }

@@ -1,30 +1,44 @@
 import 'package:flutter/material.dart';
 
-class Controller extends StatefulWidget {
-  @override
-  _ControllerState createState() => _ControllerState();
-}
+class Controller extends StatelessWidget {
+  final bool isTawafActive;
+  final Function changeActivePhase;
 
-class _ControllerState extends State<Controller> {
+  Controller({this.isTawafActive, this.changeActivePhase});
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
-          child: Container(
-              padding: EdgeInsets.all(10),
-              color: Colors.yellow,
-              child: Center(
-                child: Text('سعي'),
-              )),
+          child: GestureDetector(
+            onTap: () {           
+                changeActivePhase("sa3i");
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                color: isTawafActive ? Colors.transparent : Colors.green,
+                border: Border.all(color: Colors.black)),
+                padding: EdgeInsets.all(10),
+                child: Center(
+                  child: Text('سعي'),
+                )),
+          ),
         ),
         Expanded(
-          child: Container(
-              padding: EdgeInsets.all(10),
-              color: Colors.orange,
-              child: Center(
-                child: Text('طواف'),
-              )),
+          child: GestureDetector(
+            onTap: () {
+               changeActivePhase("tawaf");
+            },
+            child: Container(
+                padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: isTawafActive ? Colors.green : Colors.transparent,
+                border: Border.all(color: Colors.black)),
+                child: Center(
+                  child: Text('طواف'),
+                )),
+          ),
         ),
       ],
     );
