@@ -5,5 +5,5 @@ class Pray {
   String title;
   List<String> prays;
 
-  Pray({this.title});
+  Pray({this.title,this.prays});
 }
