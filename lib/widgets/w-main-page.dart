@@ -1,5 +1,6 @@
-import 'package:Umrah/pray-class.dart';
 import 'package:flutter/material.dart';
+import 'package:Umrah/pray-class.dart';
+import './w-counting.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -21,6 +22,8 @@ class MainPageState extends State<MainPage> {
     ])
   ];
 
+ 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,56 +41,19 @@ class MainPageState extends State<MainPage> {
             children: prayers.map((pray) {
               return Container(
                   child: Column(
-                    children: [
-                      Column(
-                children: pray.prays.map((pr) {
+                children: [
+                  Column(
+                    children: pray.prays.map((pr) {
                       return Text(pr);
-                }).toList(),
-              ),
-                    ],
-                  ));
+                    }).toList(),
+                  ),
+                ],
+              ));
             }).toList(),
           ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FlatButton(onPressed: (){}, child: Icon(Icons.remove_circle_outline,size: 50,)),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    child: Center(child: Text('2',style: TextStyle(fontSize: 36),)),
-                    decoration: BoxDecoration(
-                      //  border: Border.all(color: Colors.red,width: 1),
-                       color: Colors.red[100],
-                       shape: BoxShape.circle)),
-
-                  FlatButton(onPressed: (){}, child: Icon(Icons.add_circle_outline,size: 50,),)
-                ],
-          ),
-            ),
-            
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  color: Colors.yellow,
-                  child: Center(child: Text('سعي'), )),
-              ),
-               
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  color: Colors.orange,
-                  child: Center(child: Text('طواف'), )),
-              ),
-              
-            ],
-          )
+        Counting(),
         ],
       ),
-    )
-    );
+    ));
   }
 }

@@ -1,8 +1,7 @@
-import 'package:Umrah/welcome-screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'main-page.dart';
+import 'widgets/w-main-page.dart';
 
 void main() => runApp(MyApp());
 
