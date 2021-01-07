@@ -16,8 +16,15 @@ class MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Color.fromRGBO(243, 233, 219, 1),
+        accentColor: Color.fromRGBO(236, 106, 92, 1),
+        errorColor: Colors.red,
+
+
+      ),
         home: Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
           backgroundColor: Color.fromRGBO(243, 233, 219, 1),
           title: Text(
             'أدعية العمرة',

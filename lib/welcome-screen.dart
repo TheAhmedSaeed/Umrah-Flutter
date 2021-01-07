@@ -13,7 +13,7 @@ class MyWelcomeScreenState extends State<MyWelcomeScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromRGBO(243, 233, 219, 1),
+        backgroundColor: Theme.of(context).primaryColor,
         body: Padding(
             padding: const EdgeInsets.all(40),
             child: Column(
