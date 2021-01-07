@@ -11,31 +11,67 @@ class PrayerGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (pray.isExpanded) {
-      return AnimatedContainer(
-        padding: EdgeInsets.all(16),
-          duration: Duration(seconds: 50),
-          child: Column(
-        children: [
-          GestureDetector(
-              onTap: () {
-                toggleExpansion(index);
-              },
-              child: Text(pray.title)),
-          Column(
-            children: pray.prays.map((pr) {
-              return Text(pr);
-            }).toList(),
-          ),
-        ],
-      ));
-    } else {
       return Container(
-        padding: EdgeInsets.all(16),
-        child: GestureDetector(
-            onTap: () {
-              toggleExpansion(index);
-            },
-            child: Center(child: Text(pray.title))),
+        margin: EdgeInsets.all(10),
+        child: Card(
+            color: Color.fromRGBO(249, 221, 215, .8) ,
+            child: Center(
+              child: Container(
+              padding: EdgeInsets.all(16),
+              child: Column(
+              children: [
+                GestureDetector(
+                    onTap: () {
+                      toggleExpansion(index);
+                    },
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(pray.title , style: TextStyle(color: Color.fromRGBO(209, 68, 51, 1),),),
+                          Icon(Icons.arrow_drop_down,color: Theme.of(context).accentColor,)
+                        ],
+                      ),
+                    )),
+                Divider(color: Colors.black,),
+                Column(
+                  children: pray.prays.map((pr) {
+                    return Column(
+                      children: [
+                        Text(pr,style: TextStyle(color: Color.fromRGBO(209, 68, 51, 1))),
+                        Divider(color: Colors.grey,)                  
+                      ],
+                    
+                    );
+                  }).toList(),
+                ),
+              ],
+          )),
+            ),
+        ),
+      );
+    } else {
+      return  GestureDetector(
+         onTap: () {
+                  toggleExpansion(index);
+                },
+          child: Container(
+          margin: EdgeInsets.all(10),
+          child: Card(
+              color: Color.fromRGBO(249, 221, 215, .8) ,
+              child: Container(
+              padding: EdgeInsets.all(16),
+                  child: Center(
+                    child: Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+                    children: [
+                      Text(pray.title,style: TextStyle(color: Color.fromRGBO(209, 68, 51, 1))),
+                      Icon(Icons.arrow_left,color: Theme.of(context).accentColor,)
+                    ],
+                  ),),
+            ),
+          ),
+        ),
       );
     }
   }

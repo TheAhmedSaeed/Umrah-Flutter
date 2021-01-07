@@ -12,15 +12,16 @@ class Counter extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          FlatButton(
-              onPressed: () {
-                decrement();
-              },
-              child: Icon(
-                Icons.remove_circle_outline,
-                size: 50,
-                color: Theme.of(context).accentColor,
-              )),
+         FlatButton(
+            onPressed: () {
+              increment();
+            },
+            child: Icon(
+              Icons.add_circle_outline,
+              size: 50,
+              color: Theme.of(context).accentColor,
+            ),
+          ),
           Container(
               width: 60,
               height: 60,
@@ -33,16 +34,15 @@ class Counter extends StatelessWidget {
                   //  border: Border.all(color: Colors.red,width: 1),
                   color: Theme.of(context).accentColor,
                   shape: BoxShape.circle)),
-          FlatButton(
-            onPressed: () {
-              increment();
-            },
-            child: Icon(
-              Icons.add_circle_outline,
-              size: 50,
-              color: Theme.of(context).accentColor,
-            ),
-          )
+           FlatButton(
+              onPressed: () {
+                decrement();
+              },
+              child: Icon(
+                Icons.remove_circle_outline,
+                size: 50,
+                color: Theme.of(context).accentColor,
+              )),
         ],
       ),
     );

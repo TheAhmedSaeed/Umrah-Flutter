@@ -12,22 +12,6 @@ class Controller extends StatelessWidget {
       children: [
         Expanded(
           child: GestureDetector(
-            onTap: () {  
-                if(isTawafActive)         
-                changeActivePhase("sa3i");
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                color: isTawafActive ? Colors.transparent : Theme.of(context).accentColor,
-                border: Border.all(color: Theme.of(context).primaryColor)),
-                padding: EdgeInsets.all(10),
-                child: Center(
-                  child: Text('سعي',style:  TextStyle(color:  !isTawafActive ? Colors.white : Colors.black),),
-                )),
-          ),
-        ),
-        Expanded(
-          child: GestureDetector(
             onTap: () {
               if(!isTawafActive)
                changeActivePhase("tawaf");
@@ -39,6 +23,22 @@ class Controller extends StatelessWidget {
                 border: Border.all(color:Theme.of(context).primaryColor)),
                 child: Center(
                   child: Text('طواف',style: TextStyle(color:  isTawafActive ? Colors.white : Colors.black),),
+                )),
+          ),
+        ),
+            Expanded(
+          child: GestureDetector(
+            onTap: () {  
+                if(isTawafActive)         
+                changeActivePhase("sa3i");
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                color: isTawafActive ? Colors.transparent : Theme.of(context).accentColor,
+                border: Border.all(color: Theme.of(context).primaryColor)),
+                padding: EdgeInsets.all(10),
+                child: Center(
+                  child: Text('سعي',style:  TextStyle(color:  !isTawafActive ? Colors.white : Colors.black),),
                 )),
           ),
         ),
