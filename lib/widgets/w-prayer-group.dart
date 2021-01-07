@@ -11,7 +11,9 @@ class PrayerGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (pray.isExpanded) {
-      return Container(
+      return AnimatedContainer(
+        padding: EdgeInsets.all(16),
+          duration: Duration(seconds: 50),
           child: Column(
         children: [
           GestureDetector(
@@ -28,11 +30,12 @@ class PrayerGroup extends StatelessWidget {
       ));
     } else {
       return Container(
+        padding: EdgeInsets.all(16),
         child: GestureDetector(
             onTap: () {
               toggleExpansion(index);
             },
-            child: Text(pray.title)),
+            child: Center(child: Text(pray.title))),
       );
     }
   }

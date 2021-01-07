@@ -18,11 +18,11 @@ class Controller extends StatelessWidget {
             },
             child: Container(
               decoration: BoxDecoration(
-                color: isTawafActive ? Colors.transparent : Colors.green,
-                border: Border.all(color: Colors.black)),
+                color: isTawafActive ? Colors.transparent : Color.fromRGBO(236, 106, 92, 1),
+                border: Border.all(color: Color.fromRGBO(243, 233, 219, 1))),
                 padding: EdgeInsets.all(10),
                 child: Center(
-                  child: Text('سعي'),
+                  child: Text('سعي',style:  TextStyle(color:  !isTawafActive ? Colors.white : Colors.black),),
                 )),
           ),
         ),
@@ -35,10 +35,10 @@ class Controller extends StatelessWidget {
             child: Container(
                 padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: isTawafActive ? Colors.green : Colors.transparent,
-                border: Border.all(color: Colors.black)),
+                color: isTawafActive ? Color.fromRGBO(236, 106, 92, 1) : Colors.transparent,
+                border: Border.all(color:Color.fromRGBO(243, 233, 219, 1))),
                 child: Center(
-                  child: Text('طواف'),
+                  child: Text('طواف',style: TextStyle(color:  isTawafActive ? Colors.white : Colors.black),),
                 )),
           ),
         ),

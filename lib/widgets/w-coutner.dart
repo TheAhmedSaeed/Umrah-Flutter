@@ -19,18 +19,19 @@ class Counter extends StatelessWidget {
               child: Icon(
                 Icons.remove_circle_outline,
                 size: 50,
+                color: Color.fromRGBO(236, 106, 92, 1),
               )),
           Container(
-              width: 50,
-              height: 50,
+              width: 60,
+              height: 60,
               child: Center(
                   child: Text(
                 '$activeCounter',
-                style: TextStyle(fontSize: 36),
+                style: TextStyle(fontSize: 32,color: Colors.white),
               )),
               decoration: BoxDecoration(
                   //  border: Border.all(color: Colors.red,width: 1),
-                  color: Colors.red[100],
+                  color: Color.fromRGBO(236, 106, 92, 1),
                   shape: BoxShape.circle)),
           FlatButton(
             onPressed: () {
@@ -39,6 +40,7 @@ class Counter extends StatelessWidget {
             child: Icon(
               Icons.add_circle_outline,
               size: 50,
+              color: Color.fromRGBO(236, 106, 92, 1),
             ),
           )
         ],
