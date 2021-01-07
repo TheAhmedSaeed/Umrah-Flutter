@@ -4,10 +4,7 @@ import './w-counting.dart';
 
 class MainPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return MainPageState();
-  }
+  State<StatefulWidget> createState() => MainPageState();
 }
 
 class MainPageState extends State<MainPage> {
@@ -26,10 +23,11 @@ class MainPageState extends State<MainPage> {
           appBar: AppBar(
               backgroundColor: Color.fromRGBO(243, 233, 219, 1),
               title: Text(
-                'أدعية العمرة',
+                ' الأدعية ',
                 style: TextStyle(color: Colors.black, fontSize: 28),
               )),
           body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Praying(),
               Counting(),
