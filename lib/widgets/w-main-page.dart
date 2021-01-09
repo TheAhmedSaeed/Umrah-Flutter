@@ -9,20 +9,29 @@ class MainPage extends StatefulWidget {
 
 class MainPageState extends State<MainPage> {
 
-  final appBar = AppBar(
+
+  @override
+  Widget build(BuildContext context) {
+      final appBar = AppBar(
               backgroundColor: Color.fromRGBO(243, 233, 219, 1),
               title: Text(
                 ' الأدعية ',
                 style: TextStyle(color: Colors.black, fontSize: 28),
               ));
 
-  @override
-  Widget build(BuildContext context) {
+    final curScaleFactor = MediaQuery.of(context).textScaleFactor;
     return MaterialApp(
         theme: ThemeData(
           primaryColor: Color.fromRGBO(243, 233, 219, 1),
           accentColor: Color.fromRGBO(236, 106, 92, 1),
+          cardColor: Color.fromRGBO(249, 221, 215, .8),
           errorColor: Colors.red,
+          textTheme: ThemeData.light().textTheme.copyWith(
+            bodyText1: TextStyle(
+              fontSize: 18*curScaleFactor,
+              color: Color.fromRGBO(209, 68, 51, 1)
+            )
+          )
         ),
         builder: (context, child) {
           return Directionality(textDirection: TextDirection.rtl, child: child);

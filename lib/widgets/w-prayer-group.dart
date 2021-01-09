@@ -14,7 +14,7 @@ class PrayerGroup extends StatelessWidget {
       return Container(
         margin: EdgeInsets.all(10),
         child: Card(
-            color: Color.fromRGBO(249, 221, 215, .8) ,
+            color: Theme.of(context).cardColor ,
             child: Center(
               child: Container(
               padding: EdgeInsets.all(16),
@@ -28,7 +28,7 @@ class PrayerGroup extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(pray.title , style: TextStyle(color: Color.fromRGBO(209, 68, 51, 1),),),
+                          Text(pray.title , style:Theme.of(context).textTheme.bodyText1 ),
                           Icon(Icons.arrow_drop_down,color: Theme.of(context).accentColor,)
                         ],
                       ),
@@ -38,7 +38,7 @@ class PrayerGroup extends StatelessWidget {
                   children: pray.prays.map((pr) {
                     return Column(
                       children: [
-                        Text(pr,style: TextStyle(color: Color.fromRGBO(209, 68, 51, 1))),
+                        Text(pr,style: Theme.of(context).textTheme.bodyText1),
                         Divider(color: Colors.grey,)                  
                       ],
                     
@@ -58,14 +58,14 @@ class PrayerGroup extends StatelessWidget {
           child: Container(
           margin: EdgeInsets.all(10),
           child: Card(
-              color: Color.fromRGBO(249, 221, 215, .8) ,
+              color: Theme.of(context).cardColor,
               child: Container(
               padding: EdgeInsets.all(16),
                   child: Center(
                     child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween, 
                     children: [
-                      Text(pray.title,style: TextStyle(color: Color.fromRGBO(209, 68, 51, 1))),
+                      Text(pray.title,style: Theme.of(context).textTheme.bodyText1),
                       Icon(Icons.arrow_left,color: Theme.of(context).accentColor,)
                     ],
                   ),),
