@@ -53,8 +53,7 @@ class _CountingState extends State<Counting> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Column(
+    return Column(
       children: [
         Counter(
           activeCounter: _activeCounter,
@@ -66,6 +65,6 @@ class _CountingState extends State<Counting> {
           changeActivePhase: changeActivePhase,
         )
       ],
-    ));
+    );
   }
 }
