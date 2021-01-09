@@ -54,15 +54,22 @@ class _CountingState extends State<Counting> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Counter(
-          activeCounter: _activeCounter,
-          increment: increaseActivePhase,
-          decrement: decreaseActivePhase,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Counter(
+            activeCounter: _activeCounter,
+            increment: increaseActivePhase,
+            decrement: decreaseActivePhase,
+          ),
         ),
-        Controller(
-          isTawafActive: _isTawafActive,
-          changeActivePhase: changeActivePhase,
+        Padding(
+          padding: const EdgeInsets.all(0.0),
+          child: Controller(
+            isTawafActive: _isTawafActive,
+            changeActivePhase: changeActivePhase,
+          ),
         )
       ],
     );
