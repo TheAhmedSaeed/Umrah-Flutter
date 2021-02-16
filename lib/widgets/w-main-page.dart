@@ -10,6 +10,7 @@ class MainPage extends StatefulWidget {
 class MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
     final appBar = AppBar(
         backgroundColor: Color.fromRGBO(243, 233, 219, 1),
         title: Text(
@@ -17,7 +18,7 @@ class MainPageState extends State<MainPage> {
           style: TextStyle(color: Colors.black, fontSize: 28),
         ));
 
-    final curScaleFactor = MediaQuery.of(context).textScaleFactor;
+    final curScaleFactor = mediaQuery.textScaleFactor;
     return LayoutBuilder(builder: (ctx, contsraints) {
       return MaterialApp(
           theme: ThemeData(
@@ -39,14 +40,14 @@ class MainPageState extends State<MainPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                    height: (MediaQuery.of(context).size.height -
-                            (MediaQuery.of(context).padding.top +
+                    height: (mediaQuery.size.height -
+                            (mediaQuery.padding.top +
                                 appBar.preferredSize.height)) *
                         0.80,
                     child: Praying()),
                 Container(
-                    height: (MediaQuery.of(context).size.height -
-                            (MediaQuery.of(context).padding.top +
+                    height: (mediaQuery.size.height -
+                            (mediaQuery.padding.top +
                                 appBar.preferredSize.height)) *
                         0.2,
                     child: Counting()),
