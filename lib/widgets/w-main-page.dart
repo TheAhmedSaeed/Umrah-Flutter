@@ -1,6 +1,8 @@
 import 'package:Umrah/widgets/w-praying.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './w-counting.dart';
+import 'dart:io';
 
 class MainPage extends StatefulWidget {
   @override
@@ -11,7 +13,13 @@ class MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final appBar = AppBar(
+    final PreferredSizeWidget  appBar =  Platform.isIOS ? CupertinoNavigationBar(
+      backgroundColor: Color.fromRGBO(243, 233, 219, 1),
+      middle: Text(
+          ' الأدعية ',
+          style: TextStyle(color: Colors.black, fontSize: 28),
+        ),
+    ) : AppBar(
         backgroundColor: Color.fromRGBO(243, 233, 219, 1),
         title: Text(
           ' الأدعية ',
@@ -20,7 +28,8 @@ class MainPageState extends State<MainPage> {
 
     final curScaleFactor = mediaQuery.textScaleFactor;
     return LayoutBuilder(builder: (ctx, contsraints) {
-      return MaterialApp(
+      return 
+      MaterialApp(
           theme: ThemeData(
               primaryColor: Color.fromRGBO(243, 233, 219, 1),
               accentColor: Color.fromRGBO(236, 106, 92, 1),
@@ -36,22 +45,24 @@ class MainPageState extends State<MainPage> {
           },
           home: Scaffold(
             appBar: appBar,
-            body: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                    height: (mediaQuery.size.height -
-                            (mediaQuery.padding.top +
-                                appBar.preferredSize.height)) *
-                        0.80,
-                    child: Praying()),
-                Container(
-                    height: (mediaQuery.size.height -
-                            (mediaQuery.padding.top +
-                                appBar.preferredSize.height)) *
-                        0.2,
-                    child: Counting()),
-              ],
+            body: SafeArea(
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                      height: (mediaQuery.size.height -
+                              (mediaQuery.padding.top +
+                                  appBar.preferredSize.height)) *
+                          0.80,
+                      child: Praying()),
+                  Container(
+                      height: (mediaQuery.size.height -
+                              (mediaQuery.padding.top +
+                                  appBar.preferredSize.height)) *
+                          0.2,
+                      child: Counting()),
+                ],
+              ),
             ),
           ));
     });

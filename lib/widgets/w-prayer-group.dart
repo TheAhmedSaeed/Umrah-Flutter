@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../classes/c-pray.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +31,7 @@ class PrayerGroup extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(pray.title , style:Theme.of(context).textTheme.bodyText1 ),
-                          Icon(Icons.arrow_drop_down,color: Theme.of(context).accentColor,)
+                          Icon(CupertinoIcons.arrow_down,color: Theme.of(context).accentColor,)
                         ],
                       ),
                     )),
@@ -66,7 +68,7 @@ class PrayerGroup extends StatelessWidget {
                      mainAxisAlignment: MainAxisAlignment.spaceBetween, 
                     children: [
                       Text(pray.title,style: Theme.of(context).textTheme.bodyText1),
-                      Icon(Icons.arrow_left,color: Theme.of(context).accentColor,)
+                      Icon(CupertinoIcons.arrow_right,color: Theme.of(context).accentColor,)
                     ],
                   ),),
             ),

@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class Counter extends StatelessWidget {
   final int activeCounter;
@@ -12,13 +14,13 @@ class Counter extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-         FlatButton(
+         CupertinoButton(
             onPressed: () {
               increment();
             },
             child: Icon(
-              Icons.add_circle_outline,
-              size: 50,
+              CupertinoIcons.add,
+              size: 31,
               color: Theme.of(context).accentColor,
             ),
           ),
@@ -34,13 +36,13 @@ class Counter extends StatelessWidget {
                   //  border: Border.all(color: Colors.red,width: 1),
                   color: Theme.of(context).accentColor,
                   shape: BoxShape.circle)),
-           FlatButton(
+           CupertinoButton(
               onPressed: () {
                 decrement();
               },
               child: Icon(
-                Icons.remove_circle_outline,
-                size: 50,
+                CupertinoIcons.minus,
+                size: 31,
                 color: Theme.of(context).accentColor,
               )),
         ],

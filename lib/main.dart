@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/cupertino.dart';
+import 'dart:io';
 
 import 'widgets/w-main-page.dart';
 
@@ -21,9 +22,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: Scaffold(
+    return 
+    Platform.isIOS ?
+    CupertinoApp(
+      home: Platform.isIOS ? CupertinoPageScaffold(child: MainPage()) : Scaffold(
       body: MainPage(),
-    ));
+    ))  
+    :   MaterialApp(
+        home: Platform.isIOS ? CupertinoPageScaffold(child: MainPage()) : Scaffold(
+      body: MainPage(),
+    ))   ;
   }
 }

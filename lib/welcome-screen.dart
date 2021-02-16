@@ -11,7 +11,9 @@ class MyWelcomeScreen extends StatefulWidget {
 class MyWelcomeScreenState extends State<MyWelcomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return
+    // change to cupertino later
+     MaterialApp(
       home: Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         body: Padding(
