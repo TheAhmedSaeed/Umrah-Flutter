@@ -26,6 +26,7 @@ class PrayerGroup extends StatelessWidget {
                     onTap: () {
                       toggleExpansion(index);
                     },
+                    behavior: HitTestBehavior.translucent,
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,6 +54,7 @@ class PrayerGroup extends StatelessWidget {
         ),
       );
     } else {
+      //  if praying group is shrunk
       return  GestureDetector(
          onTap: () {
                   toggleExpansion(index);
