@@ -31,7 +31,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.8.1
 
+flutter_icons:
+  ios: true
+  android: true
+  image_path: "dev_assets/places.png"
+  adaptive_icon_background: "#191919"
+  adaptive_icon_foreground: "dev_assets/places-adaptive.png"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

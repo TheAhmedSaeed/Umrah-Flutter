@@ -54,13 +54,13 @@ class MainPageState extends State<MainPage> {
                       height: (mediaQuery.size.height -
                               (mediaQuery.padding.top +
                                   appBar.preferredSize.height + mediaQuery.padding.bottom )) *
-                          0.845,
+                          0.80,
                       child: Praying()),
                   Container(
                       height: (mediaQuery.size.height -
                               (mediaQuery.padding.top +
                                   appBar.preferredSize.height + mediaQuery.padding.bottom)) *
-                          0.155,
+                          0.20,
                       child: Counting()),
                 ],
               ),
