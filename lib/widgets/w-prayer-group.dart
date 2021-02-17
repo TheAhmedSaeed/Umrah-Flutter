@@ -40,8 +40,9 @@ class PrayerGroup extends StatelessWidget {
                 Column(
                   children: pray.prays.map((pr) {
                     return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(pr,style: Theme.of(context).textTheme.bodyText1),
+                        Text(pr,style: Theme.of(context).textTheme.bodyText1,),
                         Divider(color: Colors.grey,)                  
                       ],
                     

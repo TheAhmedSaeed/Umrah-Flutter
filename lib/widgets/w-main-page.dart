@@ -38,7 +38,8 @@ class MainPageState extends State<MainPage> {
               textTheme: ThemeData.light().textTheme.copyWith(
                   bodyText1: TextStyle(
                       fontSize: 18 * curScaleFactor,
-                      color: Color.fromRGBO(209, 68, 51, 1)))),
+                      color: Color.fromRGBO(209, 68, 51, 1),
+                      ))),
           builder: (context, child) {
             return Directionality(
                 textDirection: TextDirection.rtl, child: child);
@@ -53,13 +54,13 @@ class MainPageState extends State<MainPage> {
                       height: (mediaQuery.size.height -
                               (mediaQuery.padding.top +
                                   appBar.preferredSize.height + mediaQuery.padding.bottom )) *
-                          0.80,
+                          0.845,
                       child: Praying()),
                   Container(
                       height: (mediaQuery.size.height -
                               (mediaQuery.padding.top +
                                   appBar.preferredSize.height + mediaQuery.padding.bottom)) *
-                          0.2,
+                          0.155,
                       child: Counting()),
                 ],
               ),

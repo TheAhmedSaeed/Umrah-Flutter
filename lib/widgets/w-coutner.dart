@@ -20,7 +20,6 @@ class Counter extends StatelessWidget {
             },
             child: Icon(
               CupertinoIcons.add,
-              size: 31,
               color: Theme.of(context).accentColor,
             ),
           ),
@@ -42,7 +41,6 @@ class Counter extends StatelessWidget {
               },
               child: Icon(
                 CupertinoIcons.minus,
-                size: 31,
                 color: Theme.of(context).accentColor,
               )),
         ],
