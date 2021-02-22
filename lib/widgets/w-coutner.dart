@@ -40,7 +40,7 @@ class Counter extends StatelessWidget {
                 decrement();
               },
               child: Icon(
-                CupertinoIcons.minus,
+                CupertinoIcons.arrow_counterclockwise,
                 color: Theme.of(context).accentColor,
               )),
         ],
