@@ -16,7 +16,7 @@ class Counter extends StatelessWidget {
         children: [
          CupertinoButton(
             onPressed: () {
-              increment();
+              increment(context);
             },
             child: Icon(
               CupertinoIcons.add,
@@ -37,7 +37,7 @@ class Counter extends StatelessWidget {
                   shape: BoxShape.circle)),
            CupertinoButton(
               onPressed: () {
-                decrement();
+                decrement(context);
               },
               child: Icon(
                 CupertinoIcons.arrow_counterclockwise,

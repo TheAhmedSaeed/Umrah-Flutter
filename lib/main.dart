@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return 
     Platform.isIOS ?
-    CupertinoApp(
+    MaterialApp(
       home: Platform.isIOS ? CupertinoPageScaffold(child: MainPage()) : Scaffold(
       body: MainPage(),
     ))  
