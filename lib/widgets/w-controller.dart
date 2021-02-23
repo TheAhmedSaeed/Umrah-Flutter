@@ -19,7 +19,7 @@ class Controller extends StatelessWidget {
             child: Container(
                 padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: isTawafActive ? Theme.of(context).accentColor : Colors.transparent,
+                color: isTawafActive ? Theme.of(context).primaryColor : Colors.transparent,
                 border: Border.all(color:Theme.of(context).primaryColor)),
                 child: Center(
                   child: Text('طواف',style: TextStyle(color:  isTawafActive ? Colors.white : Colors.black),),
@@ -34,7 +34,7 @@ class Controller extends StatelessWidget {
             },
             child: Container(
               decoration: BoxDecoration(
-                color: isTawafActive ? Colors.transparent : Theme.of(context).accentColor,
+                color: isTawafActive ? Colors.transparent : Theme.of(context).primaryColor,
                 border: Border.all(color: Theme.of(context).primaryColor)),
                 padding: EdgeInsets.all(10),
                 child: Center(

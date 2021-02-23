@@ -53,15 +53,34 @@ class _CountingState extends State<Counting> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final curScaleFactor = mediaQuery.textScaleFactor;
+
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Counter(
-            activeCounter: _activeCounter,
-            increment: increaseActivePhase,
-            decrement: decreaseActivePhase,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("عداد ",style: Theme.of(context).textTheme.bodyText1 ),
+                    Text(this._isTawafActive ? "الطواف" : "السعي",style: TextStyle(color: Theme.of(context).primaryColor,fontSize: 18 * curScaleFactor,fontWeight: FontWeight.bold
+) ),
+                  ],
+                ),
+              ),
+              Counter(
+                activeCounter: _activeCounter,
+                increment: increaseActivePhase,
+                decrement: decreaseActivePhase,
+              ),
+            ],
           ),
         ),
         Padding(

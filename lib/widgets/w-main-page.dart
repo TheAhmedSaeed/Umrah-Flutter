@@ -14,13 +14,13 @@ class MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     final PreferredSizeWidget  appBar =  Platform.isIOS ? CupertinoNavigationBar(
-      backgroundColor: Color.fromRGBO(243, 233, 219, 1),
+      backgroundColor: Color.fromRGBO(109, 131, 182, 1),
       middle: Text(
-          ' الأدعية ',
+          ' عمرة + ',
           style: TextStyle(color: Colors.black, fontSize: 28),
         ),
     ) : AppBar(
-        backgroundColor: Color.fromRGBO(243, 233, 219, 1),
+        backgroundColor: Color.fromRGBO(109, 131, 182, 1),
         title: Text(
           ' الأدعية ',
           style: TextStyle(color: Colors.black, fontSize: 28),
@@ -31,14 +31,14 @@ class MainPageState extends State<MainPage> {
       return 
       MaterialApp(
           theme: ThemeData(
-              primaryColor: Color.fromRGBO(243, 233, 219, 1),
-              accentColor: Color.fromRGBO(236, 106, 92, 1),
-              cardColor: Color.fromRGBO(249, 221, 215, .8),
+              primaryColor: Color.fromRGBO(109, 131, 182, 1),
+              accentColor: Color.fromRGBO(42, 47, 53, 1),
+              cardColor: Color.fromRGBO(175, 215, 251, 1),
               errorColor: Colors.red,
               textTheme: ThemeData.light().textTheme.copyWith(
                   bodyText1: TextStyle(
                       fontSize: 18 * curScaleFactor,
-                      color: Color.fromRGBO(209, 68, 51, 1),
+                      color: Color.fromRGBO(42, 47, 53, 1),
                       ))),
           builder: (context, child) {
             return Directionality(

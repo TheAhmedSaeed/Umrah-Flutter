@@ -20,7 +20,7 @@ class Counter extends StatelessWidget {
             },
             child: Icon(
               CupertinoIcons.add,
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).primaryColor,
             ),
           ),
           Container(
@@ -33,7 +33,7 @@ class Counter extends StatelessWidget {
               )),
               decoration: BoxDecoration(
                   //  border: Border.all(color: Colors.red,width: 1),
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).primaryColor,
                   shape: BoxShape.circle)),
            CupertinoButton(
               onPressed: () {
@@ -41,7 +41,7 @@ class Counter extends StatelessWidget {
               },
               child: Icon(
                 CupertinoIcons.arrow_counterclockwise,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).primaryColor,
               )),
         ],
       ),
