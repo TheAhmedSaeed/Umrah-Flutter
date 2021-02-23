@@ -28,13 +28,19 @@ class PrayerGroup extends StatelessWidget {
                     },
                     behavior: HitTestBehavior.translucent,
                     child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     child: Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+                    children: [
+                      Row(
                         children: [
-                          Text(pray.title , style:Theme.of(context).textTheme.bodyText1 ),
-                          Icon(CupertinoIcons.arrow_down,color: Theme.of(context).accentColor,)
+                          Text('' +  (this.index + 1).toString()+ ' ',style: Theme.of(context).textTheme.bodyText1,),
+                          Text(pray.title,style: Theme.of(context).textTheme.bodyText1),
+                          Text(' ('+pray.prays.length.toString()+')' ,style: Theme.of(context).textTheme.bodyText2),
                         ],
                       ),
+                      Icon(CupertinoIcons.arrow_down,color: Theme.of(context).accentColor,)
+                    ],
+                  )
                     )),
                 Divider(color: Colors.black,),
                 Column(
@@ -70,7 +76,12 @@ class PrayerGroup extends StatelessWidget {
                     child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceBetween, 
                     children: [
-                      Text(pray.title,style: Theme.of(context).textTheme.bodyText1),
+                      Row(
+                        children: [
+                          Text('' +  (this.index + 1).toString()+ ' ',style: Theme.of(context).textTheme.bodyText1, ),
+                          Text(pray.title,style: Theme.of(context).textTheme.bodyText1),
+                        ],
+                      ),
                       Icon(CupertinoIcons.arrow_right,color: Theme.of(context).accentColor,)
                     ],
                   ),),

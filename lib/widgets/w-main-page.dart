@@ -22,7 +22,7 @@ class MainPageState extends State<MainPage> {
     ) : AppBar(
         backgroundColor: Color.fromRGBO(109, 131, 182, 1),
         title: Text(
-          ' الأدعية ',
+          ' عمرة + ',
           style: TextStyle(color: Colors.black, fontSize: 28),
         ));
 
@@ -36,10 +36,22 @@ class MainPageState extends State<MainPage> {
               cardColor: Color.fromRGBO(175, 215, 251, 1),
               errorColor: Colors.red,
               textTheme: ThemeData.light().textTheme.copyWith(
-                  bodyText1: TextStyle(
+                      bodyText1: TextStyle(
                       fontSize: 18 * curScaleFactor,
                       color: Color.fromRGBO(42, 47, 53, 1),
-                      ))),
+                      ),
+                      bodyText2: TextStyle(
+                      fontSize: 14 * curScaleFactor,
+                      color: Color.fromRGBO(42, 47, 53, 1),
+                      ) ,
+                      headline1: TextStyle(
+                      fontSize: 24 * curScaleFactor,
+                      color: Color.fromRGBO(42, 47, 53, 1),
+                      fontWeight: FontWeight.bold
+                      ),
+                      headline2: TextStyle(color: Color.fromRGBO(109, 131, 182, 1),fontSize: 18 * curScaleFactor,fontWeight: FontWeight.bold)
+                      ))
+                      ,
           builder: (context, child) {
             return Directionality(
                 textDirection: TextDirection.rtl, child: child);

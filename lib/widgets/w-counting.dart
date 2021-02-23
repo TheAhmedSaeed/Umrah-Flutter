@@ -70,8 +70,7 @@ class _CountingState extends State<Counting> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("عداد ",style: Theme.of(context).textTheme.bodyText1 ),
-                    Text(this._isTawafActive ? "الطواف" : "السعي",style: TextStyle(color: Theme.of(context).primaryColor,fontSize: 18 * curScaleFactor,fontWeight: FontWeight.bold
-) ),
+                    Text(this._isTawafActive ? "الطواف" : "السعي",style: Theme.of(context).textTheme.headline2 ),
                   ],
                 ),
               ),
