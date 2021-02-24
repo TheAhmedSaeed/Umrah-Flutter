@@ -17,7 +17,7 @@ class MainPageState extends State<MainPage> {
       backgroundColor: Color.fromRGBO(109, 131, 182, 1),
       middle: Text(
           ' عمرة + ',
-          style: TextStyle(color: Colors.black, fontSize: 28),
+          style: TextStyle(color: Colors.white, fontSize: 28),
         ),
     ) : AppBar(
         backgroundColor: Color.fromRGBO(109, 131, 182, 1),

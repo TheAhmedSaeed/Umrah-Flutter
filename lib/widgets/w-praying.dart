@@ -251,7 +251,7 @@ class _PrayingState extends State<Praying> {
         padding: const EdgeInsets.only(top: 8),
         child: Column(
           children: [
-            Text("الأدعية",style:Theme.of(context).textTheme.headline1,),
+            Text("الأدعية",style:Theme.of(context).textTheme.headline2,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: prayers.map((pray) {

@@ -137,40 +137,47 @@ class _CountingState extends State<Counting> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("عداد ", style: Theme.of(context).textTheme.bodyText1),
-                    Text(this._isTawafActive ? "الطواف" : "السعي",
-                        style: Theme.of(context).textTheme.headline2),
-                  ],
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(top: BorderSide(color: Theme.of(context).primaryColor,width: 3)),
+        
+      ),
+
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 13),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("عداد ", style: Theme.of(context).textTheme.bodyText1),
+                      Text(this._isTawafActive ? "الطواف" : "السعي",
+                          style: Theme.of(context).textTheme.headline2),
+                    ],
+                  ),
                 ),
-              ),
-              Counter(
-                activeCounter: _activeCounter,
-                increment: increaseActivePhase,
-                decrement: decreaseActivePhase,
-              ),
-            ],
+                Counter(
+                  activeCounter: _activeCounter,
+                  increment: increaseActivePhase,
+                  decrement: decreaseActivePhase,
+                ),
+              ],
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(0.0),
-          child: Controller(
-            isTawafActive: _isTawafActive,
-            changeActivePhase: changeActivePhase,
-          ),
-        )
-      ],
+          Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: Controller(
+              isTawafActive: _isTawafActive,
+              changeActivePhase: changeActivePhase,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
