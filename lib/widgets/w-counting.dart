@@ -15,6 +15,10 @@ const maxCounterDuration = Duration(milliseconds: maxCounterTimeInMS);
 const int smallAlertTimeInMS = 1500;
 const smallAlertDuration = const Duration(milliseconds: smallAlertTimeInMS);
 
+const int tawafIsNotDoneMsgTimeInMS = 3000;
+const tawafIsNotDoneMsgDuration = const Duration(milliseconds: tawafIsNotDoneMsgTimeInMS);
+
+
 class _CountingState extends State<Counting> {
   int _tawafCoutner = 0;
   int _sa3iCoutner = 0;
@@ -50,9 +54,7 @@ class _CountingState extends State<Counting> {
             duration: maxCounterDuration,
           ));
           showMaxSa3iMsg = false;
-          new Timer(maxCounterDuration, () => {
-            showMaxTawafMsg = true
-          });
+          new Timer(maxCounterDuration, () => {showMaxSa3iMsg = true});
         }
       }
 
@@ -62,7 +64,7 @@ class _CountingState extends State<Counting> {
       if (_isTawafActive) {
         Scaffold.of(context).showSnackBar(SnackBar(
           content: Text(
-            'انتهيت من العمرة .. بدأ السعي الآن',
+            'انتهيت من الطواف .. بدأ السعي الآن',
           ),
           duration: smallAlertDuration,
         ));
@@ -116,7 +118,7 @@ class _CountingState extends State<Counting> {
     );
     Widget cancelButton = FlatButton(
       child: Text(
-        "تراجع",
+        "إلغاء",
         style: TextStyle(),
       ),
       onPressed: () {
@@ -148,19 +150,31 @@ class _CountingState extends State<Counting> {
     );
   }
 
-  changeActivePhase(String phase) {
-    setState(() {
-      if (phase == "tawaf") {
+  changeActivePhase(String phase,[BuildContext context]) {
+    if (phase == "tawaf") {
+      setState(() {
         this._sa3iCoutner = this._activeCounter;
         this._activeCounter = this._tawafCoutner;
         this._isTawafActive = true;
-      } else if (phase == "sa3i") {
-        this._tawafCoutner = this._activeCounter;
-        this._activeCounter = this._sa3iCoutner;
-        this._isTawafActive = false;
+      });
+    } else if (phase == "sa3i") {
+      if (_activeCounter >= 7) {
+        setState(() {
+          this._tawafCoutner = this._activeCounter;
+          this._activeCounter = this._sa3iCoutner;
+          this._isTawafActive = false;
+        });
+      } else {
+          Scaffold.of(context).showSnackBar(SnackBar(
+            content: Text(
+              'لا يمكنك بدء السعي حتى الإنتهاء من  ٧ أشواط في الطواف ',
+            ),
+            duration: maxCounterDuration,
+          ));
       }
-    });
+    }
   }
+
 
   @override
   Widget build(BuildContext context) {
