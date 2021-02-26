@@ -33,9 +33,8 @@ class MainPageState extends State<MainPage> {
             appBar.preferredSize.height +
             mediaQuery.padding.bottom));
 
-    final counterPtg = mediaQuery.size.height < 800 ? 0.27 : 0.2;
-  print("mediaQuery.size.height");
-  print(mediaQuery.size.height);
+    final counterPtg = mediaQuery.size.height < 800 ? 0.27 : 0.23;
+    
     final curScaleFactor = mediaQuery.textScaleFactor;
     return LayoutBuilder(builder: (ctx, contsraints) {
       return MaterialApp(
@@ -72,12 +71,10 @@ class MainPageState extends State<MainPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                      height: actualScreenSize * (1-counterPtg),
+                      height: actualScreenSize * (1 - counterPtg),
                       child: Praying()),
                   Container(
-                      height: actualScreenSize *
-                          counterPtg,
-                      child: Counting()),
+                      height: actualScreenSize * counterPtg, child: Counting()),
                 ],
               ),
             ),

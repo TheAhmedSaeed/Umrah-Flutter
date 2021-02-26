@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import './w-coutner.dart';
 import './w-controller.dart';
@@ -7,9 +9,18 @@ class Counting extends StatefulWidget {
   _CountingState createState() => _CountingState();
 }
 
+// times to show alerts to users
+const int maxCounterTimeInMS = 3000;
+const maxCounterDuration = Duration(milliseconds: maxCounterTimeInMS);
+const int smallAlertTimeInMS = 1500;
+const smallAlertDuration = const Duration(milliseconds: smallAlertTimeInMS);
+
 class _CountingState extends State<Counting> {
   int _tawafCoutner = 0;
   int _sa3iCoutner = 0;
+
+  bool showMaxSa3iMsg = true;
+  bool showMaxTawafMsg = true;
 
   //coutner variables
   int _activeCounter = 0;
@@ -19,42 +30,58 @@ class _CountingState extends State<Counting> {
 
   increaseActivePhase(BuildContext context) {
     if (_activeCounter == 7) {
-      if (_isTawafActive)
-        Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text(
-            'العدد الأقصى لمرات الطواف هو 7 .. إنقز على "سعي" لتبدأ عداد السعي',
-          ),
-          duration: const Duration(milliseconds: 3000),
-        ));
-      else
-        Scaffold.of(context).showSnackBar(SnackBar(
-          content: Text(
-            'العدد الأقصى لمرات السعي هو 7 انتهيت من العمرة والحمدلله',
-          ),
-          duration: const Duration(milliseconds: 3000),
-        ));
+      if (_isTawafActive) {
+        if (showMaxTawafMsg) {
+          Scaffold.of(context).showSnackBar(SnackBar(
+            content: Text(
+              'العدد الأقصى لمرات الطواف هو 7 .. إنقز على "سعي" لتبدأ عداد السعي',
+            ),
+            duration: maxCounterDuration,
+          ));
+          showMaxTawafMsg = false;
+          new Timer(maxCounterDuration, () => {showMaxTawafMsg = true});
+        }
+      } else {
+        if (showMaxSa3iMsg) {
+          Scaffold.of(context).showSnackBar(SnackBar(
+            content: Text(
+              'العدد الأقصى لمرات السعي هو 7 انتهيت من العمرة والحمدلله',
+            ),
+            duration: maxCounterDuration,
+          ));
+          showMaxSa3iMsg = false;
+          new Timer(maxCounterDuration, () => {
+            showMaxTawafMsg = true
+          });
+        }
+      }
+
       return;
     }
     if (_activeCounter == 6) {
-      if (_isTawafActive)
+      if (_isTawafActive) {
         Scaffold.of(context).showSnackBar(SnackBar(
           content: Text(
             'انتهيت من العمرة .. بدأ السعي الآن',
           ),
-          duration: const Duration(milliseconds: 1500),
+          duration: smallAlertDuration,
         ));
-      else
+        setState(() {
+          this._activeCounter++;
+          this.changeActivePhase("sa3i");
+        });
+      } else {
         Scaffold.of(context).showSnackBar(SnackBar(
           content: Text(
             'انتهيت من العمرة .. تقبل الله',
           ),
-          duration: const Duration(milliseconds: 1500),
+          duration: smallAlertDuration,
         ));
+        setState(() {
+          this._activeCounter++;
+        });
+      }
 
-      setState(() {
-        this._activeCounter++;
-        this.changeActivePhase("sa3i");
-      });
       return;
     }
 
@@ -139,10 +166,9 @@ class _CountingState extends State<Counting> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(color: Theme.of(context).primaryColor,width: 3)),
-        
+        border: Border(
+            top: BorderSide(color: Theme.of(context).primaryColor, width: 3)),
       ),
-
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -151,11 +177,12 @@ class _CountingState extends State<Counting> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 13),
+                  padding: const EdgeInsets.only(bottom: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("عداد ", style: Theme.of(context).textTheme.bodyText1),
+                      Text("عداد ",
+                          style: Theme.of(context).textTheme.bodyText1),
                       Text(this._isTawafActive ? "الطواف" : "السعي",
                           style: Theme.of(context).textTheme.headline2),
                     ],
