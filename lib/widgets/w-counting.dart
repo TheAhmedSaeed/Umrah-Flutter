@@ -152,11 +152,17 @@ class _CountingState extends State<Counting> {
 
   changeActivePhase(String phase,[BuildContext context]) {
     if (phase == "tawaf") {
-      setState(() {
-        this._sa3iCoutner = this._activeCounter;
-        this._activeCounter = this._tawafCoutner;
-        this._isTawafActive = true;
-      });
+         Scaffold.of(context).showSnackBar(SnackBar(
+            content: Text(
+              'لقد انتهيت من الطواف بالفعل',
+            ),
+            duration: maxCounterDuration,
+          ));
+      // setState(() {
+      //   this._sa3iCoutner = this._activeCounter;
+      //   this._activeCounter = this._tawafCoutner;
+      //   this._isTawafActive = true;
+      // });
     } else if (phase == "sa3i") {
       if (_activeCounter >= 7) {
         setState(() {
