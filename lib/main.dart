@@ -22,15 +22,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return 
-    Platform.isIOS ?
-    MaterialApp(
-      home: Platform.isIOS ? CupertinoPageScaffold(child: MainPage()) : Scaffold(
-      body: MainPage(),
-    ))  
-    :   MaterialApp(
-        home: Platform.isIOS ? CupertinoPageScaffold(child: MainPage()) : Scaffold(
-      body: MainPage(),
-    ))   ;
+    return MaterialApp(
+        home: 
+      CupertinoPageScaffold(child: MainPage()));
   }
 }

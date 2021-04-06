@@ -2,7 +2,7 @@ import 'package:Umrah/widgets/w-praying.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './w-counting.dart';
-import 'dart:io';
+
 
 class MainPage extends StatefulWidget {
   @override
@@ -13,20 +13,13 @@ class MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final PreferredSizeWidget appBar = Platform.isIOS
-        ? CupertinoNavigationBar(
+    final PreferredSizeWidget appBar =  CupertinoNavigationBar(
             backgroundColor: Color.fromRGBO(56, 47, 56, 1),
             middle: Text(
               ' عمرة + ',
               style: TextStyle(color: Colors.white, fontSize: 28),
             ),
-          )
-        : AppBar(
-            backgroundColor: Color.fromRGBO(56, 47, 56, 1),
-            title: Text(
-              ' عمرة + ',
-              style: TextStyle(color: Colors.black, fontSize: 28),
-            ));
+          );
 
     final actualScreenSize = (mediaQuery.size.height -
         (mediaQuery.padding.top +
